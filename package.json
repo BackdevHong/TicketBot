@@ -1,0 +1,21 @@
+{
+  "name": "checkbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon ./src/index.js/"
+  },
+  "dependencies": {
+    "@prisma/client": "5.4.2",
+    "dayjs": "^1.11.10",
+    "discord-html-transcripts": "^3.2.0",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "prisma": "5.4.2"
+  }
+}
