@@ -130,7 +130,7 @@ async function makeRoom(interaction, client, channelId, user) {
         break;
       case "서버 제작 플랜" :
         message = `1. 닉네임 : \n2. 제작하고 싶은 서버의 타입: (일반/커뮤니티) \n3. 제작하고 싶은 서버에 목적: (게임, 커뮤니티 등 여러가지 가능 단, 범죄 목적은 사용 불가)`
-        officer = "<@1166002153211568222>"
+        officer = "<@&1166002153211568222>"
         break
     }
     const embed = new EmbedBuilder()
