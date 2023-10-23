@@ -110,21 +110,27 @@ async function makeRoom(interaction, client, channelId, user) {
       }
     ])
     let message;
+    let officer;
     switch (interaction.values[0]) {
       case "봇 단건 외주 플랜":
         message = `1. 닉네임 : \n2. 제작하려는 봇의 이름 : \n3. 제작하려는 봇의 상세정보 : (상세히 적어주세요) \n4. 봇의 사용 목적 : (해킹, 범죄, 악용 가능성이 있는 목적은 받아들이지 않습니다.)`
+        officer = "<@&1164553234535419915>"
         break;
       case "봇 호스팅 외주 플랜" :
         message = `1. 닉네임 : \n2. 제작하려는 봇의 이름 : \n3. 제작하려는 봇의 상세정보 : (상세히 적어주세요) \n4. 봇의 사용 목적 : (해킹, 범죄, 악용 가능성이 있는 목적은 받아들이지 않습니다.)`
+        officer = "<@&1164553234535419915>"
         break;
       case "봇 호스팅 + DB 외주 플랜" :
         message = `1. 닉네임 : \n2. 제작하려는 봇의 이름 : \n3. 제작하려는 봇의 상세정보 : (상세히 적어주세요) \n4. 봇의 사용 목적 : (해킹, 범죄, 악용 가능성이 있는 목적은 받아들이지 않습니다.)`
+        officer = "<@&1164553234535419915>"
         break;
       case "봇 호스팅 플랜" :
         message = `1. 닉네임 : \n2. 봇 파일 소유 여부 : (Y/N)`
+        officer = "<@&1164553234535419915>"
         break;
       case "서버 제작 플랜" :
         message = `1. 닉네임 : \n2. 제작하고 싶은 서버의 타입: (일반/커뮤니티) \n3. 제작하고 싶은 서버에 목적: (게임, 커뮤니티 등 여러가지 가능 단, 범죄 목적은 사용 불가)`
+        officer = "<@1166002153211568222>"
         break
     }
     const embed = new EmbedBuilder()
@@ -144,7 +150,7 @@ async function makeRoom(interaction, client, channelId, user) {
 
     const row = new ActionRowBuilder()
       .addComponents(button)
-    await channel.send({content: `<@${user.id}>, <@&1164553234535419915>`, embeds: [embed], components: [row]})
+    await channel.send({content: `<@${user.id}>, ${officer}`, embeds: [embed], components: [row]})
   })
   await interaction.editReply({content: `방이 생성되었습니다.`, ephemeral: true})
 

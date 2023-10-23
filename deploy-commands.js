@@ -1,9 +1,10 @@
-const {SlashCommandBuilder, REST, Routes} = require("discord.js")
+const {SlashCommandBuilder, REST, Routes, PermissionFlagsBits} = require("discord.js")
 
 const commands = [
     new SlashCommandBuilder()
         .setName('티켓')
         .setDescription('티켓 설정을 시작합니다.')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 ].map(command => command.toJSON());
 
 module.exports = {
