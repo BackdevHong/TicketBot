@@ -185,7 +185,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
     await interaction.deferReply({ephemeral: true})
     const guild = client.guilds.cache.get(process.env.GUILD_ID)
     if (interaction.customId === "closed") {
-      const user = guild.members.cache.get(interaction.user.id)
       if (!interaction.member.permissions.has(PermissionFlagsBits.Administrator)) {
         await interaction.editReply({content: "권한이 없습니다."})
         return
@@ -193,8 +192,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         await interaction.editReply({content: "티켓 보관 및 삭제 처리중입니다.."})
         const tdata = await clientDB.ticket.findFirst({
           where: {
-            channelId: interaction.channel.id,
-            userId: interaction.user.id
+            channelId: interaction.channel.id
           }
         })
         const attachment = await createTranscript(interaction.channel)
